@@ -126,7 +126,18 @@ int main(int argc, const char * argv[]) {
                     
                 }
                     break;
-           
+                case '8':{
+                    //8. remove punctuation
+                    printf("Input a sentence: ");
+                    fgets(inputChars, 255, stdin);
+                    
+                    NSString *inputString = [NSString stringWithUTF8String:inputChars];
+                    NSCharacterSet *charactersToRemove = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
+                    NSString *strippedReplacement = [[inputString componentsSeparatedByCharactersInSet:charactersToRemove] componentsJoinedByString:@" "];
+
+                    NSLog(@"Your new sentence is:  %@", strippedReplacement);
+                }
+                    break;
                 default:
                     break;
             }
