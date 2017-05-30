@@ -10,17 +10,6 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-      
-//        The app will take in two pieces of data from the user:
-//        
-//        a number - to indicate which operation to do
-//        a string - to operate on
-//
-//        Wrap the whole app in an infinite while loop, so users can do multiple operations.
-//                
-//        Be sure to print out the menu of options at the start of each loop of the app.
-//                
-//        As you go through the steps of this assignment, be sure to commit regularly, and push your code to GitHub.
         
         char inputNum = 0;
         char inputChars[255];
@@ -63,7 +52,7 @@ int main(int argc, const char * argv[]) {
                     f.numberStyle = NSNumberFormatterDecimalStyle;
                     NSNumber *myNumber = [f numberFromString:trimmed];
                     
-                    NSLog(@"string as a number: %@",myNumber);//NSString to NSNumber
+                    NSLog(@"string as an NSNumber: %@",myNumber);//NSString to NSNumber
                 }
                     break;
                 case '4':{
@@ -112,14 +101,14 @@ int main(int argc, const char * argv[]) {
                     NSString *inputString = [NSString stringWithUTF8String:inputChars];
                     
                     [inputString enumerateSubstringsInRange:NSMakeRange(0, [inputString length])
-                                               options:NSStringEnumerationByWords
-                                            usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-                                                wordCount += 1;
-                                                charCount += substringRange.length;
-                                            }];
+                                                    options:NSStringEnumerationByWords
+                                                 usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+                                                     wordCount += 1;
+                                                     charCount += substringRange.length;
+                                                 }];
                     
                     if(wordCount <= 1){
-                          NSLog(@"Your sentence contained %tu word", wordCount);
+                        NSLog(@"Your sentence contained %tu word", wordCount);
                     } else {
                         NSLog(@"Your sentence contains %tu words", wordCount);
                     }
@@ -134,7 +123,7 @@ int main(int argc, const char * argv[]) {
                     NSString *inputString = [NSString stringWithUTF8String:inputChars];
                     NSCharacterSet *charactersToRemove = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
                     NSString *strippedReplacement = [[inputString componentsSeparatedByCharactersInSet:charactersToRemove] componentsJoinedByString:@" "];
-
+                    
                     NSLog(@"Your new sentence is:  %@", strippedReplacement);
                 }
                     break;
@@ -142,7 +131,7 @@ int main(int argc, const char * argv[]) {
                     break;
             }
             
-      } while(loop == 1);
+        } while(loop == 1);
         
     }
     return 0;
